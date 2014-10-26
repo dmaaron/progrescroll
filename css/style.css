@@ -1,0 +1,36 @@
+body {
+    height: 5000px;
+}
+
+.title {
+    position: fixed;
+    left: 300px;
+    text-align: center;
+    font-size: 16px;
+    border: 1px solid black;
+    height: 50px;
+    width: 200px;
+}
+
+span {
+    background-color: #e1e1e1;
+    position: absolute;
+    width: 0;
+    max-width: 200px;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    min-height: inherit;
+    transition: all .2s ease-in-out;
+}
+
+.article-holder {
+   border: 1px solid blue;
+   width: 200px;
+}
+
+article {
+    margin: 1px;
+    border: 1px solid red;
+    height: 500px;
+}
