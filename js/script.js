@@ -45,7 +45,7 @@ $(function(){
       });
     
 
-      // Smooth Scroll Links
+      // Clicking a link in the progress bar causes smooth scroll to that content.
       $(".wrapper .bar a").click(function (e){
         e.preventDefault();
 
