@@ -3,11 +3,12 @@
 $(function(){
       var wrapper_top = $(".progress .wrapper").offset().top;
       $(window).scroll(function (){
-        var wrapper_height = $(".progress .wrapper").height();
+        
 
         // Affixes Progress Bars
-          var top = $(this).scrollTop();
-        if (top > wrapper_top - 10) {
+        var scrollDistance = $(this).scrollTop();
+
+        if (scrollDistance > wrapper_top - 10) {   // if scrolled just above the top of the scroll-bar holder, add affix class, fixing the holder in place.
             $(".progress .wrapper").addClass("affix");
         }
         else {
@@ -23,22 +24,23 @@ $(function(){
             var percent = 0;
 
             // Scrolled within current section
-            if (top >= this_top && top <= this_bottom) {
-                percent = ((top - this_top) / (height - wrapper_height)) * 100;
-                if (percent >= 100) { 
-                    percent = 100; 
+            if (scrollDistance >= this_top && scrollDistance <= this_bottom) { 
+                percent = ((scrollDistance - this_top) / (height - 150)) * 100;
+                if (percent >= 100) {
+                    percent = 100;
                     $(".progress .wrapper .bar:eq("+i+") i").css("color", "#fff");
                 }
                 else {
-                    $(".progress .wrapper .bar:eq("+i+") i").css("color", "#36a7f3");                                   
+                    $(".progress .wrapper .bar:eq("+i+") i").css("color", "#36a7f3");
                 }
             }
-            else if (top > this_bottom) {
+            //scrolled past content
+            else if (scrollDistance > this_bottom) {
                 percent = 100;
                 $(".progress .wrapper .bar:eq("+i+") i").css("color", "#fff");
             }
             console.log(i);
-            $(".progress .wrapper .bar:eq("+i+") span").css("width", percent + "%");
+            $(".progress .wrapper .bar:eq("+i+") span").css("width", percent + "%");//fills width of content bar based on percentage of content scrolled through
         });
       });
     
